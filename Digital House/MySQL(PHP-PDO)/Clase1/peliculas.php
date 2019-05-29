@@ -26,14 +26,15 @@ $peliculas = $consulta->fetchAll(PDO::FETCH_ASSOC);
     </ul>
     <br>
     <br>
-    <select name="pelicula" id="pelicula">
-
-        <option value="">Selecione...</option>
-        <?php foreach($peliculas as $key => $value): ?>
-            <option value="<?=$value["id"]; ?>"> <?=$value["title"] ;?> </option>
-        <?php endforeach ?>
-
-    </select>
+    <ul>
+      <?php foreach ($peliculas as $key => $value) : ?>
+      <li>
+        <a href="pelicula.php?id=<?=$value["id"];?>"> <!-- el query string viaja por get -->
+        <?=$value["title"];?>
+        </a>
+      </li>
+    <?php endforeach; ?>
+    </ul>
 
 
     <!-- Optional JavaScript -->
